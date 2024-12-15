@@ -1,10 +1,11 @@
 ﻿using backend.DbModels;
 using FastEndpoints;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace backend.Features.Students.Semesters;
 
-public record SemesterGetRequest(string Id);
+public record SemesterGetRequest(int Id);
 
 public record SubjectDto(int Id, string Name);
 public record SemesterGetResponse(string semester_name, ICollection<SubjectDto> subjects);
@@ -27,20 +28,16 @@ public class SemesterEndpointGet : Endpoint<SemesterGetRequest, SemesterGetRespo
 
     public override async Task HandleAsync(SemesterGetRequest req, CancellationToken ct)
     {
-        if (int.TryParse(req.Id, out int id))
-        {
-            var subjects = await db.Subjects.Where(x => x.SemesterId == id).ToListAsync(ct);
 
-            var semesterName = await db.Semesters.FirstOrDefaultAsync(x => x.Id == id, ct);
+            var subjects = await db.Subjects.Where(x => x.SemesterId == req.Id).ToListAsync();
+
+            var semesterName = await db.Semesters.FirstOrDefaultAsync(x => x.Id == req.Id);
 
             var response = new SemesterGetResponse(semesterName.Name, new List<SubjectDto>());
 
             subjects.ForEach(x=>response.subjects.Add(new SubjectDto(x.Id,x.Name)));
 
-            await SendAsync(response, cancellation:ct);
-            
-        }
-
+            await SendAsync(response);
 
     }
 }

@@ -1,7 +1,7 @@
 import React, { useEffect, useState} from 'react';
 import { useParams } from "react-router-dom";
 import '../styles/studentView.css';
-import { apiAuth } from '../api';
+import { apiAuth, apiNoAuth } from '../api';
 
 
 const SemesterTable = ({ semester_id, setSemesterName }) => {
@@ -10,33 +10,33 @@ const SemesterTable = ({ semester_id, setSemesterName }) => {
 
   useEffect(() => {
     const fetchSubject = async () => {
-      if (!semester_id) {
-        setError("Semester ID is not provided");
-        return;
-      }
-
+      const url = `https://localhost:7097/student/semester?Id=${semester_id}`;
+    
       try {
-        const response = await apiAuth("/student/semester","GET", {Id:semester_id});
+        const response = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+          },
+        });
+    
         if (!response.ok) {
-          throw new Error(`API request failed with status ${response.status}`);
+          const errorText = await response.text();
+          console.error("Error details:", errorText);
+          throw new Error(`Request failed: ${response.status}`);
         }
-
+    
         const data = await response.json();
-        if (!data || !data.semester_name || !data.subjects) {
-          setError("Invalid response from the server");
-          return;
-        }
-
-        setSemesterName(data.semester_name);
+        console.log("Response data:", data);
         setSubjects(data.subjects);
+        setSemesterName(data.semester_name);
       } catch (error) {
         console.error("Failed to fetch semester info:", error);
-        setError("Could not load semester data. Please try again later.");
       }
     };
-
+    
     fetchSubject();
-  }, [semester_id]);
+  }, [semester_id, setSemesterName]);
 
   if (error) {
     return <div className="error-text">{error}</div>;

@@ -60,14 +60,15 @@ bld.Services.AddScoped<IJwtManager, JwtManager>();
 bld.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySQL(bld.Configuration.GetConnectionString("DefaultConnection") ?? ""));
 
+
 bld.Services.AddCors(options =>
 {
     options.AddPolicy("AllowLocalhostOnly", builder =>
     {
-        builder.WithOrigins("http://localhost:3000")
-            .WithOrigins("https://localhost:3000")
+        builder.WithOrigins("http://localhost:3000", "https://localhost:3000")
             .AllowAnyMethod()
-            .AllowAnyHeader();
+            .AllowAnyHeader()
+            .AllowCredentials();
     });
 });
 
@@ -79,5 +80,6 @@ app.UseCors("AllowLocalhostOnly");
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseDeveloperExceptionPage();
 app.UseFastEndpoints();
 app.Run();
