@@ -1,0 +1,89 @@
+.student-view-container {
+    margin-top: 100px;
+    padding: 24px;
+    background-color: transparent;
+    min-height: 100vh;
+    color: aliceblue;
+    font-family: Arial, sans-serif;
+  }
+  
+  .no-data-message {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+    margin: 20px 0;
+  }
+  
+
+  .student-view-card {
+    border: 2px solid lime;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 32px;
+  }
+  
+  .student-view-card-header {
+    padding: 16px;
+  }
+  
+  .student-view-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .student-view-info-text {
+    font-size: 14px;
+    margin-bottom: 8px;
+  }
+  
+  .student-view-semester-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 16px;
+  }
+  
+  .student-view-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .student-view-table-header {
+    background-color: #111;
+    text-align: left;
+  }
+  
+  .student-view-table-header-cell {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+  }
+  
+  .student-view-table-row:hover {
+    background-color: #111;
+  }
+  
+  .student-view-table-cell {
+    padding: 12px;
+    border-bottom: 1px solid #333;
+  }
+  
+  .student-view-button {
+    background: none;
+    border: none;
+    color: aliceblue;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .student-view-summary-text {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  
+  .student-view-footer-text {
+    font-size: 14px;
+    margin-top: 32px;
+    color: #888;
+  }
+  
+  

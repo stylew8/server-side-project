@@ -1,0 +1,63 @@
+.student-subject-detailed-container {
+    margin-top: 100px;
+    padding: 24px;
+    background-color: black;
+    min-height: 100vh;
+    color: aliceblue;
+    font-family: Arial, sans-serif;
+  }
+  
+  .student-subject-detailed-header {
+    border: 2px solid lime;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  
+  .student-subject-detailed-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .student-subject-detailed-code {
+    font-size: 18px;
+    color: #888;
+  }
+  
+  .student-subject-detailed-info {
+    margin-bottom: 24px;
+  }
+  
+  .student-subject-detailed-info p {
+    margin-bottom: 8px;
+  }
+  
+  .student-subject-detailed-grades h2 {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  
+  .student-subject-detailed-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+  }
+  
+  .student-subject-detailed-table th,
+  .student-subject-detailed-table td {
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: left;
+  }
+  
+  .student-subject-detailed-table th {
+    background-color: #111;
+  }
+  
+  .student-subject-detailed-final-grade {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  

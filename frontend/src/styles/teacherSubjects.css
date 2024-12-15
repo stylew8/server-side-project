@@ -1,0 +1,31 @@
+.teacher-main{
+    gap: 50px;
+}
+
+.teacher-section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.subject-link{
+    text-decoration: none;
+    color: aliceblue;
+    background-color: black;
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    min-width: 450px;
+    padding-left: 20px;
+    border: 1px solid limegreen;
+    transition: 0.2s all ease-in-out;
+    font-size: 1.15rem;
+}
+
+.subject-link:hover{
+    text-decoration:underline;
+    background-color: #4040;
+    border: 1px solid white;
+}

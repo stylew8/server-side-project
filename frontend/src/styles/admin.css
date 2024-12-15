@@ -1,0 +1,112 @@
+.admin-main {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.admin-add-user,
+.admin-user-list {
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+    border: 1px solid limegreen;
+    border-radius: 5px;
+    background-color: black;
+}
+
+.admin-title {
+    text-align: center;
+    color: aliceblue;
+    margin-bottom: 20px;
+}
+
+.admin-form-group {
+    margin-bottom: 15px;
+}
+
+.admin-label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: aliceblue;
+}
+
+.admin-input,
+.admin-select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: #333;
+}
+
+.admin-input::placeholder {
+    color: #333 !important;
+}
+
+.admin-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.admin-button:hover {
+    background-color: #45a049;
+}
+
+.admin-user-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.admin-user-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+
+.admin-user-item:last-child {
+    border-bottom: none;
+}
+
+.admin-user-info {
+    font-size: 16px;
+    color: aliceblue;
+}
+
+.admin-user-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.admin-button-edit,
+.admin-button-delete {
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.admin-button-edit {
+    background-color: #2196F3;
+}
+
+.admin-button-edit:hover {
+    background-color: #0b7dda;
+}
+
+.admin-button-delete {
+    background-color: #f44336;
+}
+
+.admin-button-delete:hover {
+    background-color: #da190b;
+}

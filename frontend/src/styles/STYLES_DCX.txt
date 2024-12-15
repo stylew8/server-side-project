@@ -1,0 +1,9 @@
+[GENERATED] ../App.css - currently DELETED
+[GENERATED] ../index.css - currently DELETED
+[GLOBAL] Header.css
+[GLOBAL] Footer.css
+[GLOBAL] Site.css;
+[IDNIVIDUAL to CASCADING] ../Styles/Index.css:
+    [CASCADING] Semester.css;
+    [CASCADING] SemestersDetails.css;
+    
