@@ -15,9 +15,21 @@ const StudentSubjectDetailed = () => {
     const fetchSubject = async () => {
       try {
         setLoading(true);
-        const response = await apiAuth(`/student/subject/${subjectId}`);
+        const url = `https://localhost:7097/student/subject?Id=${subjectId}`;
+        const response = await fetch(url, {
+          method: "GET",
+          headers: {
+            "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+          },
+        });
+        if (!response.ok) {
+          const errorText = await response.text();
+          console.error("Error details:", errorText);
+          throw new Error(`Request failed: ${response.status}`);
+        }
+    
         const data = await response.json();
-
+        console.log("Response data:", data);
         setSubject(data);
       } catch (err) {
         setError(err);
@@ -35,8 +47,23 @@ const StudentSubjectDetailed = () => {
         if (subject && subject.grade_types) {
           const gradeResponses = await Promise.all(
             subject.grade_types.map(async (gradeType) => {
-              const response = await apiAuth(`/student/grade/${gradeType.id}`);
-              return await response.json();
+              const url = `https://localhost:7097/student/grade?Id=${gradeType.id}`;
+              const response = await fetch(url, {
+                method: "GET",
+                headers: {
+                  "Authorization": `Bearer ${localStorage.getItem("jwt")}`,
+                },
+              });
+              if (!response.ok) {
+                const errorText = await response.text();
+                console.error("Error details:", errorText);
+                throw new Error(`Request failed: ${response.status}`);
+              }
+              
+              var result = await response.json();
+
+              console.log(result);
+              return result;
             })
           );
 
@@ -54,6 +81,7 @@ const StudentSubjectDetailed = () => {
     if (subject && grades) {
       const types = subject.grade_types || [];
       const result = types.map((gradeType) => {
+
         const matchedGrade = grades.find((grade) => grade.grade_type_id === gradeType.id);
 
         return {
@@ -68,11 +96,11 @@ const StudentSubjectDetailed = () => {
   }, [subject, grades]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <main>Loading...</main>;
   }
 
   if (error) {
-    return <div>Error: {error.message}</div>;
+    return <main>Error: {error.message}</main>;
   }
 
   return (
@@ -84,7 +112,7 @@ const StudentSubjectDetailed = () => {
       <div className="student-subject-detailed-info">
         <p>Kreditai: 6</p>
         <p>
-          Dėstytojas: {subject?.teacher_name[0] ? `${subject.teacher_name[0]}` : "N/A"}
+          Dėstytojas: {subject?.teacher_name ? `${subject.teacher_name}` : "N/A"}
         </p>
       </div>
       <div className="student-subject-detailed-grades">

@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 namespace backend.Features.Students;
 
 public record StudentInfoMeResponse(int student_id, string full_name,string program_name,string group_name);
-public class StudentInfoMe : EndpointWithoutRequest<StudentInfoMeResponse>
+public class StudentInfoMeEndpoint : EndpointWithoutRequest<StudentInfoMeResponse>
 {
     private readonly AppDbContext db;
 
-    public StudentInfoMe(AppDbContext db)
+    public StudentInfoMeEndpoint(AppDbContext db)
     {
         this.db = db;
     }

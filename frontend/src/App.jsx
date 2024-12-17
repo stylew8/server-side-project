@@ -52,7 +52,7 @@ function App() {
   }, []);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <main>Loading...</main>;
   }
 
     const MainPage = ({userRole}) =>{
@@ -74,8 +74,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage userRole={userRole}/>} />
 
-        <Route path='/semestersDetails' element={<SemestersDetails />} />
-        <Route path='/teacherSubjectDetails' element={<TeacherSubjectDetails />} />
+        <Route path='/teacherSubjectDetails/:subjectId' element={<TeacherSubjectDetails />} />
 
         <Route path='/studentView/:semesterId' element={<StudentView />} />
         <Route path="/studentSubjectDetailed/:subjectId" element={<StudentSubjectDetailed />} />

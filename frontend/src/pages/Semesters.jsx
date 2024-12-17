@@ -27,11 +27,11 @@ export default function Semesters() {
      }, []);
 
      if (loading) {
-          return <div>Loading...</div>; 
+          return <main>Loading...</main>; 
      }
 
      if (error) {
-          return <div>{error}</div>; 
+          return <main>{error}</main>; 
      }
 
      return (

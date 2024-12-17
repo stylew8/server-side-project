@@ -8,14 +8,14 @@ public class AuthHandler : IAuthHandler
 {
     private readonly IEncryptor enc;
     private readonly IAuthRepo<Student> repoStudent;
-    private readonly IAuthRepo<Admin> repoAdmin;
+    private readonly IAuthRepo<DbModels.Models.Admin> repoAdmin;
     private readonly IAuthRepo<Teacher> repoTeacher;
     private readonly IJwtManager jwt;
 
     public AuthHandler(
         IEncryptor enc,
         IAuthRepo<Student> repoStudent,
-        IAuthRepo<Admin> repoAdmin,
+        IAuthRepo<DbModels.Models.Admin> repoAdmin,
         IAuthRepo<Teacher> repoTeacher,
         IJwtManager jwt)
     {

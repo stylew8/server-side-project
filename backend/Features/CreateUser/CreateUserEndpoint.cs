@@ -17,7 +17,7 @@ namespace backend.Features.CreateUser
         public override void Configure()
         {
             Verbs(Http.GET);
-            Routes("/api/users");
+            Routes("/admin/create");
             AllowAnonymous();
         }
 

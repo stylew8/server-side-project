@@ -14,6 +14,8 @@ const LoginForm = ({ userType }) => {
         };
     
         try {
+            setLoading(true);
+            setError('');
             const response = await apiNoAuth('/auth/login', 'POST', data);
             const result = await response.json();  
     
@@ -22,10 +24,14 @@ const LoginForm = ({ userType }) => {
                 localStorage.setItem("jwt", result.jwtToken);
                 window.location = "/";
             } else {
+                setError('Login failed');
                 console.log('Login failed');
             }
         } catch (error) {
             console.error('Login error:', error);
+            setError('Login failed');
+        }finally{
+            setLoading(false)
         }
     };
 
